@@ -18,10 +18,14 @@ with open('czifile/__init__.py') as f:
 
 version = re.search("__version__ = '(.*?)'", text).groups()[0]
 
-
+with open('requirements.txt','r') as fp:
+    required = fp.readlines()
+    
 setup_args = dict(
     name='czifile',
     version=version,
+    requires=requried,
+    setup_requires=['Cython'],
     description='Read and write image data from and to CZI files.',
     long_description=readme,
     author='Christoph Gohlke', 
